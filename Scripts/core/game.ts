@@ -53,7 +53,7 @@
 
     // setup scoreboard manager
     ScoreBoardManager = new managers.ScoreBoard();
-    managers.Game.ScoreBoardManager = ScoreBoardManager;
+    managers.Game.ScoreBoard = ScoreBoardManager;
 
     // This is where all the magic happens
     Main();

@@ -7,7 +7,7 @@
   let AssetManager: createjs.LoadQueue;
   let CurrentScene: objects.Scene;
   let CurrentState: config.Scene;
-  let ScoreBoardManager: managers.ScoreBoard;
+  let ScoreBoard: managers.ScoreBoard;
 
   let Manifest = [
     { id: "StartButton", src: "/Assets/images/StartButton.png" },
@@ -15,7 +15,7 @@
     { id: "BackButton", src: "/Assets/images/BackButton.png" },
     { id: "plane", src: "/Assets/images/plane.png" },
     { id: "sky", src: "/Assets/images/sky.jpg" },
-    { id: "island", src: "/Assets/images/island.png" },
+    { id: "island", src: "/Assets/images/friend.png" },
     { id: "cloud", src: "/Assets/images/boss.png" },
     { id: "yay", src: "/Assets/audio/yay.ogg" },
     { id: "thunder", src: "/Assets/audio/thunder.ogg" },
@@ -52,8 +52,8 @@
     managers.Game.CurrentState = CurrentState;
 
     // setup scoreboard manager
-    ScoreBoardManager = new managers.ScoreBoard();
-    managers.Game.ScoreBoard = ScoreBoardManager;
+    ScoreBoard = new managers.ScoreBoard();
+    managers.Game.ScoreBoard = ScoreBoard;
 
     // This is where all the magic happens
     Main();

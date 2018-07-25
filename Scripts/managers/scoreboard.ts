@@ -41,7 +41,11 @@ namespace managers {
 
     set Lives(newValue: number) {
       this._lives = newValue;
-      this.LivesLabel.text = "Lives: " + this._lives;
+      if (this._lives <= 0) {
+        managers.Game.CurrentState = config.Scene.END;
+      } else {
+        this.LivesLabel.text = "Lives: " + this._lives;
+      }
     }
 
     get Score(): number {
@@ -58,8 +62,11 @@ namespace managers {
     }
 
     set HighScore(newHighScore: number) {
-      this._highscore = newHighScore;
-      this.HighScoreLabel.text = "High Score: " + this._highscore;
+      this._score = newHighScore;
+      this.ScoreLabel.text = "Score: " + this._score;
+      if (this._score > this.HighScore) {
+        this.HighScore = this._score;
+      }
     }
 
     // constructor
@@ -91,14 +98,16 @@ namespace managers {
       );
       this.Reset();
       this._highscoreLabel = new objects.Label(
-        "Score: 99999",
-        "30px",
-        "Consolas",
+        "High Score: 999999",
+        "60px",
+        "Dock51",
         "#FFFF00",
-        370,
-        20,
+        config.Screen.HALF_WIDTH,
+        config.Screen.HALF_HEIGHT,
         true
       );
+
+      this.HighScore = 0;
       this.Reset();
     }
 

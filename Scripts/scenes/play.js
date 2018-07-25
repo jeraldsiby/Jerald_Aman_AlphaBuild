@@ -59,7 +59,7 @@ var scenes;
             // adding the ocean to the scene
             this.addChild(this._ocean);
             // adding the island to the scene
-            //this.addChild(this._island);
+            this.addChild(this._island);
             // adding the plane to the scene
             this.addChild(this._plane);
             // adding the cloud to the scene
@@ -67,6 +67,8 @@ var scenes;
                 var cloud = _a[_i];
                 this.addChild(cloud);
             }
+            this.addChild(managers.Game.ScoreBoard.LivesLabel);
+            this.addChild(managers.Game.ScoreBoard.ScoreLabel);
         };
         return Play;
     }(objects.Scene));

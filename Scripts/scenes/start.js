@@ -21,19 +21,21 @@ var scenes;
         // private methods
         // public methods
         Start.prototype.Start = function () {
-            this._welcomeLabel = new objects.Label("Welcome!", "60px", "Consolas", "#000000", 320, 240, true);
+            this._ocean = new objects.Ocean();
+            this._welcomeLabel = new objects.Label("Group SATN", "60px", "Consolas", "#ffffff", 320, 240, true);
             this._startButton = new objects.Button("StartButton", 320, 360, true);
             this.Main();
         };
         Start.prototype.Update = function () {
+            this._ocean.Update();
         };
-        Start.prototype.Reset = function () {
-        };
+        Start.prototype.Reset = function () { };
         Start.prototype.Destroy = function () {
             this.removeAllChildren();
         };
         Start.prototype.Main = function () {
             console.log("Starting - START SCENE");
+            this.addChild(this._ocean);
             this.addChild(this._welcomeLabel);
             this.addChild(this._startButton);
             this._startButton.on("click", function () {

@@ -21,22 +21,26 @@ var scenes;
         // private methods
         // public methods
         End.prototype.Start = function () {
+            this._ocean = new objects.Ocean();
             this._endLabel = new objects.Label("Game Over!", "60px", "Consolas", "#000000", 320, 240, true);
             this._backButton = new objects.Button("BackButton", 320, 360, true);
             this.Main();
         };
         End.prototype.Update = function () {
+            this._ocean.Update();
         };
-        End.prototype.Reset = function () {
-        };
+        End.prototype.Reset = function () { };
         End.prototype.Destroy = function () {
             this.removeAllChildren();
         };
         End.prototype.Main = function () {
             console.log("Starting - END SCENE");
+            this.addChild(this._ocean);
             this.addChild(this._endLabel);
             this.addChild(this._backButton);
+            this.addChild(managers.Game.ScoreBoard.HighScoreLabel);
             this._backButton.on("click", function () {
+                managers.Game.ScoreBoard.Reset();
                 managers.Game.CurrentState = config.Scene.PLAY;
             }, this);
         };
